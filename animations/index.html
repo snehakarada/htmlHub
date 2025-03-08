@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(0, 0, 0, 0.1);
+      }
+      .header {
+        background-color: rgb(252, 198, 255);
+        text-align: center;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+      }
+      .main {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid black;
+        justify-items: center;
+        margin-top: 50px;
+        row-gap: 20px;
+      }
+      .child {
+        border: 1px solid black;
+        height: 800px;
+        width: 800px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="curatins"></div>
+      <h1>Animation</h1>
+      <div class="curatins" id="back"></div>
+    </header>
+    <div class="main">
+      <div class="child">
+        <embed src="rotate.html" width="800px" height="800px" />
+      </div>
+      <div class="child">
+        <embed src="nature.html" width="800px" height="800px" />
+      </div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+  </body>
+</html>

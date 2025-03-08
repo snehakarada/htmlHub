@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      const parent = document.querySelector("body");
+      const circle = document.createElement("div");
+      circle.style.width = "150px";
+      circle.style.height = "150px";
+      circle.style.borderRadius = "50%";
+      circle.style.backgroundColor = "lightblue";
+
+      const hand = document.createElement("div");
+      hand.style.width = "2px";
+      hand.style.height = "50px";
+      hand.style.backgroundColor = "black";
+      hand.style.position = "absolute";
+      hand.style.top = "30px";
+      hand.style.left = "80px";
+
+      parent.appendChild(circle);
+      parent.appendChild(hand);
+    </script>
+  </body>
+</html>

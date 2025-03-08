@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Foodies corner</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      header {
+        border: 1px solid black;
+        padding: 20px;
+        background-color: #005491;
+      }
+      a {
+        text-decoration: none;
+        color: navy;
+      }
+
+      section {
+        margin-top: 65px;
+        padding: 20px;
+        background-color: bisque;
+      }
+
+      #horizental-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        background-color: bisque;
+      }
+
+      img {
+        border-radius: 20px;
+      }
+
+      .cards {
+        padding: 10px;
+        border: 1px solid black;
+        line-height: 22px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+      }
+      .cards * {
+        margin-bottom: 10px;
+      }
+      .addButton {
+        border: 1px solid black;
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        border-radius: 10px;
+        margin-left: 200px;
+      }
+      footer {
+        border: 1px solid black;
+        background-color: rgb(0, 0, 0, 0.9);
+      }
+      ul {
+        list-style-type: none;
+      }
+      #bottom {
+        width: 100px;
+        margin: 30px;
+      }
+
+      .navigation {
+        border: 1px solid rgb(0, 0, 0, 0.5);
+        padding: 10px;
+        width: 35vw;
+        text-align: center;
+        background-color: whitesmoke;
+
+        &:hover {
+          background-color: rgb(0, 0, 0, 0.3);
+        }
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 5px;
+      }
+      #box {
+        height: 4vh;
+        width: 10vw;
+        border-radius: 10px;
+        background-color: #005491;
+        border: 2px solid white;
+        color: white;
+      }
+      header {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button id="box">DetectLocation</button>
+    </header>
+    <nav>
+      <div class="navigation">
+        <a href="#">Delivery<br />Now</a>
+      </div>
+      <div class="navigation">
+        <a href="#">Takeaway<br />Select Store</a>
+      </div>
+      <div class="navigation">
+        <a href="#">Dine-In<br />Select Store</a>
+      </div>
+    </nav>
+    <section>
+      <img
+        src="./assets/best.png"
+        style="margin-left: 40vw; margin-bottom: 1vw"
+      />
+      <h1 style="color: goldenrod; margin-bottom: 2vw" align="center">
+        Top 10 Bestsellers
+      </h1>
+      <div id="horizental-scroll">
+        <div class="cards">
+          <img src="./assets/pizza1.jpg" height="260em" width="268em" />
+          <h2>Veggie Paradise</h2>
+          <p>
+            The awesome foursome! Golden corn, black olives, capsicum, paprika.
+          </p>
+          <p style="font-size: 30px">₹109</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza2.jpg" height="260em" width="268em" />
+          <h2>Peppy Paneer</h2>
+          <p>
+            Flavourful trio of juicy paneer, crisp capsicum with spicy red
+            paprika.
+          </p>
+          <p style="font-size: 30px">₹109</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizz3.webp" height="250px" width="260px" />
+          <h2>Marghertia</h2>
+          <p>Classic delight with 100% real mozzarella cheese.</p>
+          <p style="font-size: 30px">₹199</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza4.webp" height="250px" width="260px" />
+          <h2>Indi Tandoori Paneer</h2>
+          <p>
+            It is spicy.Tandoori paneer with capsicum, red paprika & mint mayo.
+          </p>
+          <p style="font-size: 30px">₹299</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza5.webp" height="250px" width="260px" />
+          <h2>Corn Chesse Pizza</h2>
+          <p>A delicious fusion of corn stuffed paratha and cheesy pizza.</p>
+          <p style="font-size: 30px">₹109</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza6.webp" height="250px" width="260px" />
+          <h2>Mexican Green Wave</h2>
+          <p>Mexican herbs sprinked on onion , capsicum, tomato & jalapeno..</p>
+          <p style="font-size: 30px">₹259</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza7.webp" height="250px" width="260px" />
+          <h2>Veg Extravaganza</h2>
+          <p>Black olives, onion, grilled mushroom, jalapeno & cheese.</p>
+          <p style="font-size: 30px">₹299</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza8.webp" height="250px" width="260px" />
+          <h2>Farmhouse</h2>
+          <p>Delightful combination of onion, tomato & grilled mushroom.</p>
+          <p style="font-size: 30px">₹259</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza9.jpg" height="250px" width="260px" />
+          <h2>cheese overload</h2>
+          <p>cheese overloaded pizza with a pepper flavoured cheese.</p>
+          <p style="font-size: 30px">₹379</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+        <div class="cards">
+          <img src="./assets/pizza10.webp" height="250px" width="260px" />
+          <h2>Achari Do Pyaza</h2>
+          <p>Tangy & spicy achari flavours on a super cheesy onion pizza</p>
+          <p style="font-size: 30px">₹199</p>
+          <button class="addButton">Add +</button>
+          <p>Regular | New Hand Tossed ></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div
+        style="
+          color: white;
+          width: 50vw;
+          height: 25vh;
+          display: flex;
+          margin-left: 22vw;
+        "
+      >
+        <div id="bottom">
+          <ul>
+            <li>Menu</li>
+            <li>Veg Pizza</li>
+            <li>Non-veg Pizza</li>
+            <li>Beverages</li>
+            <li>Pizza Mania</li>
+            <li>Burger Pizza</li>
+            <li>Domino's Coupons & offers</li>
+          </ul>
+        </div>
+        <div id="bottom">
+          <ul>
+            <li>Pizza Restaurants</li>
+            <li>Store Finder</li>
+          </ul>
+        </div>
+        <div id="bottom">
+          <ul>
+            <li>Dominos Pizza</li>
+            <li>About Us</li>
+            <li>Feedback</li>
+            <li>Ads</li>
+          </ul>
+        </div>
+        <div id="bottom">
+          <ul>
+            <li>Domino's Policies</li>
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+            <li>Disclaimer</li>
+          </ul>
+        </div>
+        <div id="bottom">
+          <ul>
+            <li>Order Pizza In</li>
+            <li>Bangalore</li>
+            <li>Chennai</li>
+            <li>New Delhi</li>
+            <li>Gurgaon</li>
+            <li>Hyderabad</li>
+            <li>Kolkata</li>
+            <li>Mumbai</li>
+            <li>pune</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

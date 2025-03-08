@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>puzzle</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: goldenrod">Sliding Puzzle</h1>
+    <script>
+      const parent = document.querySelector("body");
+      const outer = document.createElement("div");
+      outer.style.width = "54.4vw";
+      outer.style.height = "54vh";
+      outer.style.border = "1px solid black";
+      outer.style.display = "flex";
+      outer.style.flexWrap = "wrap";
+      outer.style.margin = "8vh auto";
+
+      parent.appendChild(outer);
+      const colours = [
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-1-column-3.jpg",
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-1-column-1.jpg",
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-2-column-2.jpg",
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-3-column-2.jpg",
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-2-column-3.jpg",
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-2-column-1.jpg",
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-3-column-1.jpg",
+        "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-1-column-2.jpg",
+      ];
+
+      for (let order = 1; order < 9; order++) {
+        const box = document.createElement("div");
+        box.style.width = "18vw";
+        box.style.height = "18vh";
+        box.style.backgroundImage = `url(${colours[order - 1]})`;
+        box.style.backgroundSize = "cover";
+        box.style.backgroundRepeat = "no-repeat";
+        box.style.order = `${order}`;
+        box.style.border = "1px solid black";
+        outer.appendChild(box);
+        box.addEventListener("click", (event) => move(event, box));
+      }
+
+      const empty = document.createElement("div");
+      empty.style.width = "18vw";
+      empty.style.height = "18vh";
+      empty.style.backgroundColor = "whitesmoke";
+      empty.style.order = "9";
+
+      outer.appendChild(empty);
+
+      const move = (event, tag) => {
+        console.log(event);
+        if (
+          (Number(tag.style.order) - Number(empty.style.order) === 1 &&
+            Number(empty.style.order % 3 !== 0)) ||
+          (Number(tag.style.order) - Number(empty.style.order) === -1 &&
+            Number(tag.style.order) % 3 !== 0) ||
+          Number(empty.style.order) - Number(tag.style.order) === 3 ||
+          Number(empty.style.order) - Number(tag.style.order) === -3
+        ) {
+          const order = empty.style.order;
+          empty.style.order = tag.style.order;
+          tag.style.order = order;
+        }
+      };
+    </script>
+  </body>
+</html>

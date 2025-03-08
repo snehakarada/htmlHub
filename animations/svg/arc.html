@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      svg {
+        height: 800px;
+        width: 800px;
+        background-color: white;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <svg fill="pink">
+      <path
+        d="M 5 23
+        A 1, 10, 0, 0, 0, 10, 10
+        Q 10 40 1 10"
+      />
+      <path
+        d="M 400,200
+               A 1, 1, 0, 1, 0, 200, 800
+               "
+      />
+      <circle cx="100" cy="300" r="50" fill="pink" />
+      <line x1="0" y1="200" x2="800" y2="200" stroke="black" />
+      <polygon points="0,200 100,0 200,200" fill="green" />
+      <polygon points="200,200 300,0 400,200" fill="green" />
+      <polygon points="400,200 500,0 600,200" fill="green" />
+      <polygon points="600,200 700,0 800,200" fill="green" />
+    </svg>
+  </body>
+</html>
+<!-- A 10, 10, 0, 0, 1, 50, 60 -->

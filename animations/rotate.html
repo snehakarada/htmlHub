@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style>
+      :root {
+        --speed: 10s;
+      }
+
+      div {
+        background-color: rgba(255, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotate1 var(--speed) infinite;
+        /* border-radius: 100px; */
+      }
+
+      #div1 {
+        border: 3px solid black;
+        width: 600px;
+        height: 600px;
+        margin: 100px auto;
+      }
+      #div2 {
+        border: 3px solid black;
+        width: 500px;
+        height: 500px;
+      }
+
+      #div3 {
+        border: 3px solid black;
+        width: 400px;
+        height: 400px;
+      }
+
+      #div4 {
+        border: 3px solid black;
+        width: 300px;
+        height: 300px;
+      }
+
+      #div5 {
+        border: 3px solid black;
+        width: 200px;
+        height: 200px;
+      }
+
+      #div6 {
+        border: 3px solid black;
+        width: 100px;
+        height: 100px;
+      }
+
+      @keyframes rotate1 {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <div id="div2">
+        <div id="div3">
+          <div id="div4">
+            <div id="div5">
+              <div id="div6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

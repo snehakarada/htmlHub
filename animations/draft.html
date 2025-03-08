@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>draft</title>
+    <style>
+      #outer {
+        width: 50vw;
+        height: 50vh;
+        border: 1px solid black;
+      }
+      #face {
+        width: 5vw;
+        height: 5vh;
+        border: 1px solid black;
+        position: absolute;
+        top: 10vh;
+        left: 40vh;
+        border-radius: 50%;
+        animation: up 1s infinite;
+        background-color: black;
+      }
+      @keyframes up {
+        to {
+          transform: translateY(-20px);
+        }
+      }
+      #body {
+        width: 5vw;
+        height: 10vh;
+        border: 1px solid black;
+        position: absolute;
+        top: 15vh;
+        left: 40vh;
+        border-radius: 50%;
+        animation: up 1s infinite;
+        background-color: black;
+      }
+      .legs {
+        width: 0.5vw;
+        height: 10vh;
+        border: 1px solid black;
+        position: absolute;
+        top: 24vh;
+        left: 42vh;
+        animation: up 1s infinite;
+        background-color: black;
+      }
+      #right {
+        top: 24vh;
+        left: 47vh;
+      }
+      .hands {
+        position: absolute;
+        width: 4vw;
+        height: 0.5vh;
+        top: 18vh;
+        left: 33vh;
+        border: 1px solid black;
+        animation: up 1s infinite;
+        background-color: black;
+      }
+
+      #left {
+        top: 18vh;
+        left: 49vh;
+        /* animation: move 1s infinite; */
+      }
+      @keyframes move {
+        to {
+          rotate: 45deg;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="face"></div>
+      <div id="body"></div>
+      <div class="legs"></div>
+      <div id="right" class="legs"></div>
+      <div class="hands"></div>
+      <div class="hands" id="left"></div>
+      <audio
+        controls
+        src="/Users/bhagyakarada/workspace/htmlHub/animations/Hyderabad-Chatal-Band.mp3"
+      ></audio>
+      <script>
+        const parent = document.getElementById("outer");
+        setInterval(() => {
+          parent.style.backgroundColor = `rgb(${Math.random() * 255}, ${
+            Math.random() * 255
+          }, ${Math.random() * 255}, 0.5)`;
+        }, 10);
+      </script>
+    </div>
+  </body>
+</html>

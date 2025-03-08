@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      nav {
+        background-color: whitesmoke;
+        position: fixed;
+        top: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 8%;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        &:hover{
+          color: navy;
+        }
+      }
+      section {
+        width: 74%;
+        border: 1px solid rgb(0, 0, 0, 0.1);
+        background-color: rgb(0, 0, 0, 0.2);
+        color: white;
+        font-size: 15px;
+      }
+      section * {
+        padding-bottom: 10px;
+      }
+      h3 {
+        color: violet;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        margin-top: 100px;
+        row-gap: 20px;
+      }
+      #stick {
+        color: white;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 20px;
+        margin-left: 190px;
+      }
+      .child {
+        border: 1px solid white;
+        padding: 10px;
+        width: 90px;
+        text-align: center;
+        font-size: 13px;
+        height: 25px;
+        border-radius: 6px;
+        margin: 8px;
+      }
+      #tech{
+        background-image: url('./assets/tech.jpg');
+        margin-top: 70px;
+        width: 100%;
+        height: 350px;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(0, 0, 0, 0.9)">
+    <header>
+      <nav>
+        <div style="font-size: 25px; color: navy">
+          <img src="assets/phone.png" width="34px" height="34px" />PhonePe
+        </div>
+        <div><a href="#">BUSINESS SOLUTIONS</a></div>
+        <div><a href="#">PRESS</a></div>
+        <div><a href="#">CAREERS</a></div>
+        <div><a href="#">ABOUT US</a></div>
+        <div><a href="#">BLOG</a></div>
+        <div><a href="#">CONTACT US</a></div>
+        <div><a href="#">TRUST & SAFETY</a></div>
+      </nav>
+    </header>
+    <div id="tech">
+      <p style="padding-top: 150px; padding-left: 750px; font-size: 25px">
+        PhonePe
+      </p>
+      <p style="font-size: 80px; padding-left: 640px; font-weight: 400">
+        Tech Blog
+      </p>
+    <!-- </div>
+      <div class="child">All</div>
+      <div class="child">Archeiture</div>
+      <div class="child">Engineering</div>
+      <div class="child">Mobile</div>
+      <div class="child">People Stories</div>
+      <div class="child">Product</div>
+    </div> -->
+    <div class="cards">
+      <section>
+        <img src="./assets/security.png" width="665px" height="350px" />
+        <h3>Engineering</h3>
+        <h2>Vulnerability Management & Risk Scoring for Business Services</h2>
+        <p>arnab Roy</p>
+        <p>January 22, 2025</p>
+      </section>
+      <section>
+        <img
+          src="assets/tech-blog-final-copy-1.png"
+          width="665px"
+          height="350px"
+        />
+        <p id="heading">Product</p>
+        <h2>Central Platforms: Building Blocks for the PhonePe Group</h2>
+        <p>Rahul Chari, Co-Founder & CTO, PhonePe</p>
+        <p>January 13, 2025</p>
+      </section>
+
+      <section>
+        <img
+          src="assets/Elasticsearch-Blog-icon-1.jpg"
+          width="665px"
+          height="350px"
+        />
+        <p>Product</p>
+        <h2>Central Platforms: Building Blocks for the PhonePe Group</h2>
+        <p>Rahul Chari, Co-Founder & CTO, PhonePe</p>
+        <p>January 13, 2025</p>
+      </section>
+      <section>
+        <img src="assets/PPeC-blog-option-1.jpg" width="665px" height="350px" />
+        <p>Product</p>
+        <h2>Virtual Machine Provisioning and Management in PhonePe</h2>
+        <p>
+          Umed Jadav, Pratik Anurag and Krishna Thatta Prasanth December 23,
+          2024
+        </p>
+        <p>December 23, 2024</p>
+      </section>
+      <section>
+        <img src="assets/img5.jpg" width="665px" height="350px" />
+        <p>Mobile</p>
+        <h2>
+          Edge Framework:Powering on-Device ML for smarter, safer Experience
+        </h2>
+        <p>Kalpesh patel and Suvam Dubey</p>
+        <p>November 21, 2024</p>
+      </section>
+      <section>
+        <img src="assets/img6.png" width="665px" height="350px" />
+        <p>Mobile</p>
+        <h2>Introducing the PhonePe App Platform</h2>
+        <p>Gaurav Lochan</p>
+        <p>September 21, 2024</p>
+      </section>
+      <section>
+        <img src="assets/img7.png" width="665px" height="350px" />
+        <p>Architecture</p>
+        <h2>
+          Demystifying TStore: The Backbone of Billions of Transactions at
+          PhonePe-Chapter2
+        </h2>
+        <p>Arnab Bir and Tushar Naik</p>
+        <p>August 08, 2024</p>
+      </section>
+      <section>
+        <img src="assets/img8.png" width="665px" height="350px" />
+        <p>Architecture</p>
+        <h2>
+          Demystifying TStore: The Backbone of Billions of Transactions at
+          PhonePe
+        </h2>
+        <p>Arnab Bir and Tushar Naik</p>
+        <p>August 06, 2024</p>
+      </section>
+    </div>
+  </body>
+</html>
