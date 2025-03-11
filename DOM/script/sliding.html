@@ -8,15 +8,15 @@
     <script>
       const parent = document.querySelector("body");
       const outer = document.createElement("div");
-      outer.style.width = "54.4vw";
+      outer.style.width = "30.35vw";
       outer.style.height = "54vh";
-      outer.style.border = "1px solid black";
       outer.style.display = "flex";
       outer.style.flexWrap = "wrap";
       outer.style.margin = "8vh auto";
+      outer.style.border = "1px solid black";
 
       parent.appendChild(outer);
-      const colours = [
+      const blocks = [
         "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-1-column-3.jpg",
         "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-1-column-1.jpg",
         "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-2-column-2.jpg",
@@ -26,22 +26,23 @@
         "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-3-column-1.jpg",
         "/Users/bhagyakarada/workspace/htmlHub/PineTools.com_files/row-1-column-2.jpg",
       ];
-
+      console.log(window.innerHeight, window.innerWidth);
       for (let order = 1; order < 9; order++) {
         const box = document.createElement("div");
-        box.style.width = "18vw";
+        box.style.width = "10vw";
         box.style.height = "18vh";
-        box.style.backgroundImage = `url(${colours[order - 1]})`;
+        box.style.backgroundImage = `url(${blocks[order - 1]})`;
         box.style.backgroundSize = "cover";
         box.style.backgroundRepeat = "no-repeat";
         box.style.order = `${order}`;
         box.style.border = "1px solid black";
         outer.appendChild(box);
+
         box.addEventListener("click", (event) => move(event, box));
       }
 
       const empty = document.createElement("div");
-      empty.style.width = "18vw";
+      empty.style.width = "10vw";
       empty.style.height = "18vh";
       empty.style.backgroundColor = "whitesmoke";
       empty.style.order = "9";

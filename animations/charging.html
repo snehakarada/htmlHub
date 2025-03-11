@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>charger</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      const parent = document.querySelector("body");
+      const outer = document.createElement("div");
+
+      outer.style.width = "40vw";
+      outer.style.height = "30vh";
+      outer.style.border = "1px solid black";
+      outer.style.display = "flex";
+      outer.style.alignItems = "center";
+      outer.style.justifyContent = "flex-start";
+
+      const createChild = () => {
+        const child = document.createElement("div");
+        child.style.width = "5vh";
+        child.style.height = "25vh";
+        child.style.backgroundColor = "green";
+        child.style.border = "1px solid black";
+        child.style.marginRight = "2px";
+        return child;
+      };
+
+      let x = 1;
+
+      const intervalId = setInterval(() => {
+        const child = createChild();
+        outer.appendChild(child);
+      }, 1000);
+
+      setTimeout(() => {
+        clearInterval(intervalId);
+        console.log(stopped);
+      }, 8000);
+
+      parent.appendChild(outer);
+    </script>
+  </body>
+</html>

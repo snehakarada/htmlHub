@@ -20,6 +20,7 @@ const errorMsg = (error) => {
 };
 
 const connection = (credentials, name, id) => {
+  console.log('hello');
   const client = new Client(credentials);
   client.connect()
     .then(() => {
@@ -31,23 +32,15 @@ const connection = (credentials, name, id) => {
 };
 
 const insertData = (client, name, id) => {
-  return client.queryObject("insert into customer(name, id) values($1, ${2})", [name, id]);
+  return client.queryObject("insert into customer(name, id) values($1, $2)", [name, id]);
 };
 
 const getDetails = () => {
   const name = document.getElementById("name").value;
   const id = document.getElementById("id").value;
 
-  fetch("http://localhost:3000/insert", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, id }),
-  })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error("Error:", error));
+  // console.log(name, id);
+  connection(credentials, name, id);
 };
 
 const signUp = () => {

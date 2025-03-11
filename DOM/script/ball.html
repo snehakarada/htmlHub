@@ -2,9 +2,148 @@
 <html>
   <head>
     <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(245, 245, 245, 0.1);
+      }
+
+      #outer {
+        width: 80vw;
+        height: 50vh;
+        border: 1px solid black;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      #line-wrapper {
+        width: 202%;
+        display: flex;
+        animation: move 6s linear infinite;
+        /* animation: reverse 1s linear infinite; */
+      }
+
+      @keyframes reverse {
+        to {
+          rotate: 90deg;
+        }
+      }
+
+      .line {
+        min-width: 100vw;
+        height: 0.01vh;
+        border: 1px solid black;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100vw);
+        }
+      }
+
+      @keyframes jump {
+        50% {
+          top: 5vh;
+        }
+        100% {
+          top: 15vh;
+        }
+      }
+
+      #dino {
+        width: 6vw;
+        height: 10vh;
+        /* border: 1px solid black; */
+        position: absolute;
+        top: 15vh;
+        left: 2vw;
+        background-image: url("../../assets/small.gif");
+        background-repeat: no-repeat;
+      }
+      .bushes {
+        width: 1vw;
+        height: 2vh;
+        background-color: green;
+        border: 1px solid black;
+        position: absolute;
+        left: 100vh;
+        bottom: 1vh;
+      }
+    </style>
   </head>
   <body>
-    <script src="ballScript.js"></script>
-    <hr />
+    <div id="outer">
+      <div id="line-wrapper">
+        <div class="bushes"></div>
+        <div class="line"></div>
+        <div class="bushes" style="left: 180vh"></div>
+        <div class="line"></div>
+      </div>
+      <div id="dino"></div>
+    </div>
+
+    <script>
+      const outer = document.getElementById("outer");
+      console.log(outer);
+      const dino = document.getElementById("dino");
+      const obstacle = document.getElementsByClassName("bushes")[0];
+      const background = document.getElementById("line-wrapper");
+
+      const gameOver = () => {
+        const over = document.createElement("div");
+        over.style.width = "15vw";
+        over.style.height = "10vh";
+        over.style.border = "1px solid black";
+        over.style.position = "absolute";
+        over.style.top = "20vh";
+        over.style.left = "40vh";
+        over.style.backgroundColor = "black";
+        over.style.color = "white";
+        over.style.textAlign = "center";
+
+        over.innerHTML = "<p>Game over<br>press enter to start</p>";
+
+        outer.appendChild(over);
+        console.log(over);
+      };
+
+      setInterval(() => {
+        const dinoRect = dino.getBoundingClientRect();
+        const obstacleRect = obstacle.getBoundingClientRect();
+        const isGameOver =
+          dinoRect.right > obstacleRect.left &&
+          dinoRect.left < obstacleRect.right &&
+          dinoRect.bottom > obstacleRect.top &&
+          dinoRect.top < obstacleRect.bottom;
+
+        if (isGameOver) {
+          background.style.animation = "none";
+          obstacle.style.display = "none";
+          gameOver();
+        }
+      }, 100);
+
+      console.log(window.innerHeight);
+
+      document.addEventListener("keyup", (event) => {
+        console.log("event", event);
+        if (event.key === "ArrowUp") {
+          dino.style.animation = "none";
+          dino.offsetHeight;
+          dino.style.animation = "jump 2s 1 forwards";
+        }
+
+        if (event.key === "Enter") {
+          console.log("restart the game");
+          location.reload();
+        }
+      });
+    </script>
   </body>
 </html>

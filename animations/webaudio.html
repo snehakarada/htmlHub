@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Audio test</title>
+    <style>
+      #dancer {
+        width: 3vw;
+        height: 8vh;
+        background-color: skyblue;
+        margin: 20vh auto;
+        transition: transform 0.1s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dancer"></div>
+    <audio id="audio" controls src="./Hyderabad-Chatal-Band.mp3"></audio>
+
+    <script>
+      const audio = document.getElementById("audio");
+
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const source = audioCtx.createMediaElementSource(audio);
+      const analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 256;
+
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      const dancer = document.getElementById("dancer");
+
+      function animateDancer() {
+        analyser.getByteFrequencyData(dataArray);
+
+        const volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
+
+        dancer.style.transform = `scale(${1 + volume / 200})`;
+
+        requestAnimationFrame(animateDancer);
+      }
+
+      audio.addEventListener("play", () => {
+        audioCtx.resume(); // Needed in modern browsers
+        animateDancer();
+      });
+    </script>
+  </body>
+</html>
