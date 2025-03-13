@@ -1,49 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Audio test</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dancing Toy</title>
     <style>
-      #dancer {
-        width: 3vw;
-        height: 8vh;
-        background-color: skyblue;
-        margin: 20vh auto;
+      body {
+        background: #fdf6ec;
+        text-align: center;
+      }
+
+      #toy {
+        position: relative;
+        width: 120px;
+        margin: 100px auto;
+      }
+
+      #head {
+        width: 60px;
+        height: 60px;
+        background-color: peachpuff;
+        border-radius: 50%;
+        margin: 0 auto;
         transition: transform 0.1s ease;
+      }
+
+      #body {
+        position: relative;
+        width: 60px;
+        margin: 0 auto;
+      }
+
+      #torso {
+        width: 40px;
+        height: 80px;
+        background-color: cornflowerblue;
+        margin: 0 auto;
+        border-radius: 10px;
+      }
+
+      .hand {
+        width: 20px;
+        height: 60px;
+        background-color: lightblue;
+        position: absolute;
+        top: 0;
+        transition: transform 0.1s ease;
+      }
+
+      #left-hand {
+        left: -30px;
+      }
+
+      #right-hand {
+        right: -30px;
+      }
+
+      .leg {
+        width: 20px;
+        height: 60px;
+        background-color: lightgreen;
+        position: absolute;
+        top: 80px;
+        transition: transform 0.1s ease;
+      }
+
+      #left-leg {
+        left: 0;
+      }
+
+      #right-leg {
+        right: 0;
+      }
+
+      #audio {
+        margin-top: 50px;
       }
     </style>
   </head>
   <body>
-    <div id="dancer"></div>
+    <div id="toy">
+      <div id="head"></div>
+      <div id="body">
+        <div class="hand" id="left-hand"></div>
+        <div class="hand" id="right-hand"></div>
+        <div id="torso"></div>
+        <div class="leg" id="left-leg"></div>
+        <div class="leg" id="right-leg"></div>
+      </div>
+    </div>
     <audio id="audio" controls src="./Hyderabad-Chatal-Band.mp3"></audio>
 
     <script>
       const audio = document.getElementById("audio");
 
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const source = audioCtx.createMediaElementSource(audio);
       const analyser = audioCtx.createAnalyser();
       analyser.fftSize = 256;
 
+      const source = audioCtx.createMediaElementSource(audio);
       source.connect(analyser);
       analyser.connect(audioCtx.destination);
 
-      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
 
-      const dancer = document.getElementById("dancer");
+      const head = document.getElementById("head");
+      const leftHand = document.getElementById("left-hand");
+      const rightHand = document.getElementById("right-hand");
+      const leftLeg = document.getElementById("left-leg");
+      const rightLeg = document.getElementById("right-leg");
 
-      function animateDancer() {
+      function animate() {
         analyser.getByteFrequencyData(dataArray);
 
-        const volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
+        let sum = 0;
+        for (let i = 0; i < bufferLength; i++) {
+          sum += dataArray[i];
+        }
+        const average = sum / bufferLength;
 
-        dancer.style.transform = `scale(${1 + volume / 200})`;
+        const headMove = Math.sin(Date.now() / 100) * (average / 20);
+        head.style.transform = `translateX(${headMove}px)`;
 
-        requestAnimationFrame(animateDancer);
+        const handShift = Math.sin(Date.now() / 100) * (average / 10);
+        leftHand.style.transform = `translateY(${handShift}px)`;
+        rightHand.style.transform = `translateY(${-handShift}px)`;
+
+        const legShift = Math.sin(Date.now() / 100) * (average / 5);
+        leftLeg.style.transform = `translateX(${legShift}px) rotate(${legShift}deg)`;
+        rightLeg.style.transform = `translateX(${-legShift}px) rotate(${-legShift}deg)`;
+
+        requestAnimationFrame(animate);
       }
 
       audio.addEventListener("play", () => {
-        audioCtx.resume(); // Needed in modern browsers
-        animateDancer();
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume().then(() => {
+            console.log("Audio context resumed");
+            animate();
+          });
+        } else {
+          animate();
+        }
       });
     </script>
   </body>
