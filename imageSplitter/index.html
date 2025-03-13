@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>image splitter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="image.js" defer></script>
+    <style>
+      body {
+        background-color: #f8e7f6;
+      }
+      #outer {
+        width: 50vw;
+        height: 8vh;
+        border: 1px solid black;
+        margin: auto;
+        background-color: #f5f5f5;
+      }
+      #userImg {
+        width: 40vw;
+        height: 70vh;
+        border: 1px solid black;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        background-color: #f5f5f5;
+      }
+      #input {
+        width: 10vw;
+        height: 70vh;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f5f5f5;
+      }
+
+      #input * {
+        margin: 0;
+        margin-bottom: 3vh;
+      }
+
+      canvas {
+        border: 1px solid black;
+        position: absolute;
+        top: 10vw;
+        left: 100vh;
+        /* width: 60vw;
+        height: 70vh; */
+      }
+      .dimensions {
+        width: 4vw;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 align="center">Image Splitter</h1>
+    <div id="outer">
+      <input type="file" id="fileName" />
+    </div>
+    <div
+      style="
+        width: 50vw;
+        height: 70vh;
+        margin: auto;
+        border: 1px solid black;
+        display: flex;
+      "
+    >
+      <div id="userImg">Preview</div>
+      <div id="input">
+        <h3>input</h3>
+        <h4>rows</h4>
+        <input
+          type="number"
+          min="1"
+          placeholder="0"
+          id="rows"
+          class="dimensions"
+        />
+        <h4>columns</h4>
+        <input
+          type="number"
+          min="1"
+          class="dimensions"
+          placeholder="0"
+          id="column"
+        />
+        <button id="submit">split image</button>
+        <button id="download">Download</button>
+      </div>
+    </div>
+    <canvas style="display: none"></canvas>
+  </body>
+</html>

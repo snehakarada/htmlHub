@@ -14,7 +14,7 @@ date: 10-03-2025
 - what else I want to moc
 
   1. I want to mock visual studio code (in the context of events)
-  2. image splitter.
+  2. image splitter. // ✅ Done
 
 - And I want to take data from the user through browser using html, css, js
 - and then I want to store that data in my db while signup and then while login

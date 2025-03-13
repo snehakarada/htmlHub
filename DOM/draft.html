@@ -16,3 +16,11 @@
     <script src="./square.js"></script>
   </body>
 </html>
+
+<!-- const image = document.querySelector("img"); // image.style.display = "none"; -->
+
+const canvas = document.querySelector("canvas"); const ctx =
+canvas.getContext("2d"); image.onload = () => { console.log(image.naturalHeight,
+image.naturalWidth); ctx.drawImage(image, 10, 10); ctx.drawImage(image, 0, 0,
+2560, 460, 0, 0, 2560, 430); ctx.drawImage(image, 0, 461, 2560, 460, 0, 461,
+2560, 430); ctx.drawImage(image, 10, 10, 2560, 460, 10, 10, 2560, 430); };
