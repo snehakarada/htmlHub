@@ -4,32 +4,7 @@ const getId = () => {
   console.log(id);
 };
 
-const credentials = {
-  user: "postgres",
-  password: "kahensamma",
-  database: "food",
-  hostname: "localhost",
-  port: 5432
-};
 
-const successMsg = () => {
-  console.log('connected ✅');
-};
-const errorMsg = (error) => {
-  console.log('not connected', error);
-};
-
-const connection = (credentials, name, id) => {
-  console.log('hello');
-  const client = new Client(credentials);
-  client.connect()
-    .then(() => {
-      successMsg();
-      return insertData(client, name, id);
-    })
-    .catch(errorMsg)
-    .finally(() => client.end());
-};
 
 const insertData = (client, name, id) => {
   return client.queryObject("insert into customer(name, id) values($1, $2)", [name, id]);
@@ -62,16 +37,3 @@ const signUp = () => {
 
   parent.appendChild(outer);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-

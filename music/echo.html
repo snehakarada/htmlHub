@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style>
+      div {
+        width: 3vw;
+        height: 8vh;
+        border: 1px solid black;
+        background-color: skyblue;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="increase"></div>
+    <script>
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then((stream) => {
+          const audioCtx = new AudioContext();
+          // const analyser = audioCtx.createAnalyser();
+          // console.log(analyser);
+
+          const source = audioCtx.createMediaStreamSource(stream);
+          source.connect(audioCtx.destination);
+          // source.connect(analyser);
+          // analyser.fftSize = 256;
+          // analyser.connect(audioCtx.destination);
+
+          // const bufferLength = analyser.frequencyBinCount;
+          // const dataArray = new Uint8Array(bufferLength);
+          // console.log(dataArray);
+          // const element = document.getElementById("increase");
+          // console.log("element", element);
+
+          // function animate() {
+          //   analyser.getByteFrequencyData(dataArray);
+
+          //   let sum = 0;
+          //   for (let i = 0; i < bufferLength; i++) {
+          //     sum += dataArray[i];
+          //   }
+          //   const average = sum / bufferLength;
+
+          //   element.style.width = `${average * 5}px`;
+
+          //   requestAnimationFrame(animate);
+          // }
+          // animate();
+        })
+        .catch((err) => {
+          console.error("Error accessing microphone:", err);
+        });
+    </script>
+  </body>
+</html>
