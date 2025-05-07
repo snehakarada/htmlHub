@@ -2,9 +2,25 @@
 <html>
   <head>
     <title>Document</title>
+    <style>
+      #parent {
+        background-color: rgb(0, 255, 0, 0.2);
+        width: 800px;
+        height: 600px;
+        display: grid;
+        grid-template-columns: repeat(50, 1fr);
+        grid-template-rows: repeat(50, 1fr);
+        margin: 100px 500px;
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <h1 align="center">Snake game</h1>
+    <div>
+      <p id="score"></p>
+      <div id="parent"></div>
+    </div>
     <script src="snake.js"></script>
   </body>
 </html>

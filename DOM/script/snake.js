@@ -2,7 +2,7 @@ const drawGrid = () => {
   for (let i = 0; i < 2500; i++) {
     const child = document.createElement('div');
     child.style.backgroundColor = 'yellow';
-    // child.style.border = '1px solid black';
+    const tag = document.getElementById("parent");
     child.id = `box${i}`;
     tag.append(child);
   }
@@ -32,30 +32,37 @@ const updateGrid = (position) => {
   }
 };
 
-const runGame = (position, step) => {
+const runGame = (position, step, score, place) => {
   const head = position.at(-1);
   const newHead = head + step;
+  let isGotPoint = false;
 
   if (newHead === place) {
     position.push(newHead);
     place = generateNewTarget(position);
+    isGotPoint = true;
+
   } else {
-    position.shift();
     position.push(newHead);
+    position.shift();
   }
 
   updateGrid(position);
-  placeTarget();
+  placeTarget(place);
+
+  return isGotPoint ? score + 1 : score;
 };
 
-const placeTarget = () => {
+const placeTarget = (place) => {
   const target = document.getElementById(`box${place}`);
   target.style.backgroundColor = 'red';
 };
 
-let place;
 const main = () => {
+  let place;
   let step = 1;
+  let score = 0;
+
   drawGrid();
 
   const position = [0, 1];
@@ -66,23 +73,10 @@ const main = () => {
   });
 
   setInterval(() => {
-    runGame(position, step);
+    score = runGame(position, step, score, place);
+    const scoreCard = document.getElementById("score");
+    scoreCard.textContent = `score : ${score}`;
   }, 100);
 };
 
-const tag = document.createElement('div');
-const parent = document.querySelector('body');
-parent.style.backgroundColor = "rgb(0, 255, 0, 0.2)";
-
-tag.style.width = "800px";
-tag.style.height = "600px";
-tag.style.display = "grid";
-tag.style.gridTemplateColumns = "repeat(50, 1fr)";
-tag.style.gridTemplateRows = "repeat(50, 1fr)";
-tag.id = 'parent';
-tag.style.margin = "100px 500px";
-tag.style.border = "1px solid black";
-
-parent.appendChild(tag);
-
-main();
+globalThis.onload = main;
